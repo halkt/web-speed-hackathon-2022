@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import { Stack } from "../../../../../components/layouts/Stack";
-import { TrimmedImage } from "../../../../../components/media/TrimmedImage";
 import { Color, FontSize, Space } from "../../../../../styles/variables";
 
 const PlayerNumber = styled.span`
@@ -25,14 +24,15 @@ const PlayerName = styled.span`
  */
 
 /** @type {React.VFC<ItemProps>} */
-const Item = ({ image, name, number }) => {
+const Item = ({ image, index, name, number }) => {
+  const lazy = index >= 2;
   return (
     <Stack gap={Space * 1}>
-      <TrimmedImage
-        lazy
+      <img
         alt={`${name}選手のプロフィール写真`}
         height={100}
-        src={`${image.slice(0, -4)}.webp`}
+        loading={lazy ? "lazy" : "eager"}
+        src={`${image.slice(0, -4)}-100-100.webp`}
         width={100}
       />
 
