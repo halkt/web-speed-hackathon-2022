@@ -48,7 +48,8 @@ const RaceTitle = styled.h2`
 
 /** @type {React.VFC<ItemProps>} */
 const Item = ({ index, race }) => {
-  const lazy = index >= 2;
+  // const lazy = index >= 2;
+  const lazy = index >= 0;
   const [closeAtText, setCloseAtText] = useState(formatCloseAt(race.closeAt));
 
   // 締切はリアルタイムで表示したい
