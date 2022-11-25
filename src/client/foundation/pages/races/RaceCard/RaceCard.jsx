@@ -72,10 +72,11 @@ export const RaceCard = () => {
 
         <Spacer mt={Space * 2} />
         <PlayerPictureList>
-          {data.entries.map((entry) => (
-            <PlayerPictureList.Item
+          {data.entries.map((entry, index) => (
+          <PlayerPictureList.Item
               key={entry.id}
               image={entry.player.image}
+              index={index}
               name={entry.player.name}
               number={entry.number}
             />

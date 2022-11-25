@@ -48,8 +48,7 @@ const RaceTitle = styled.h2`
 
 /** @type {React.VFC<ItemProps>} */
 const Item = ({ index, race }) => {
-  // const lazy = index >= 2;
-  const lazy = index >= 0;
+  const lazy = index >= 2;
   const [closeAtText, setCloseAtText] = useState(formatCloseAt(race.closeAt));
 
   // 締切はリアルタイムで表示したい
@@ -96,9 +95,9 @@ const Item = ({ index, race }) => {
 
         <Stack.Item grow={0} shrink={0}>
           <Stack horizontal alignItems="center" gap={Space * 2}>
-            <TrimmedImage
+            <img
               height={100}
-              lazy={lazy}
+              loading={lazy ? "lazy" : "eager"}
               src={`${race.image.slice(0, -4)}-100-100.webp`}
               width={100}
             />

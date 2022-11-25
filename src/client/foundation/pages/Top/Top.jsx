@@ -155,7 +155,7 @@ export const Top = () => {
       <Spacer mt={Space * 2} />
       <section>
         <Heading as="h1">本日のレース</Heading>
-        {todayRacesToShow.length > 0 ? (
+        {todayRacesToShow.length >= 2 ? (
           <RecentRaceList>
             {todayRacesToShow.map((race, index) => (
               <RecentRaceList.Item
