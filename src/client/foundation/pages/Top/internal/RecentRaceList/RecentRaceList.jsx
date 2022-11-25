@@ -42,11 +42,13 @@ const RaceTitle = styled.h2`
 
 /**
  * @typedef ItemProps
+ * @property {number} index
  * @property {Model.Race} race
  */
 
 /** @type {React.VFC<ItemProps>} */
-const Item = ({ race }) => {
+const Item = ({ index, race }) => {
+  const lazy = index >= 2;
   const [closeAtText, setCloseAtText] = useState(formatCloseAt(race.closeAt));
 
   // 締切はリアルタイムで表示したい
@@ -94,9 +96,9 @@ const Item = ({ race }) => {
         <Stack.Item grow={0} shrink={0}>
           <Stack horizontal alignItems="center" gap={Space * 2}>
             <TrimmedImage
-              lazy
               height={100}
-              src={`${race.image.slice(0, -4)}.webp`}
+              lazy={lazy}
+              src={`${race.image.slice(0, -4)}-100-100.webp`}
               width={100}
             />
             <RaceButton to={`/races/${race.id}/race-card`}>投票</RaceButton>
